@@ -21,6 +21,9 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="#map" id="map-link"><span class="icon solid fa-map">Map</span></a></li>
+						<li onclick="myLocation()"><a href="#map" id="map-link"><span class="icon solid fa-user">My Location</span></a></li>
+						<li onclick="showMarkers()"><a href="#map" id="map-link"><span class="icon solid fa-location-dot">Show Markers</span></a></li>
+						<li onclick="hideMarkers()"><a href="#map" id="map-link"><span class="icon solid fa-location-pin">Hide Markers</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -41,12 +44,12 @@
 		<!-- Main -->
 		<div id="main">
 			<section class="two">
-				<div id="map" style="height: 93vh;"></div>
-				<div style="height: 7vh;">
+				<div id="map" style="height: 100vh;"></div>
+				<!-- <div style="height: 7vh;">
 					<a href="#" class="button scrolly" onclick="myLocation()">내위치조회</a>
 					<a href="#" class="button scrolly" onclick="showMarkers()">선택한 마커보이기</a>
 					<a href="#" class="button scrolly" onclick="hideMarkers()">선택한 마커숨기기</a>
-				</div>
+				</div> -->
 			</section>
 		</div>
 
