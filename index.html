@@ -64,7 +64,7 @@
 		let mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
 				center: new kakao.maps.LatLng(37.4979671, 127.1151262), // 지도의 중심좌표
-				level: 4 // 지도의 확대 레벨
+				level: 7 // 지도의 확대 레벨
 			};
 		let map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -145,20 +145,43 @@
 		// // 여러개 마커 배열 end ***
 
 
-		// 클러스터 파라미터 ***
-		var data = {'positions':[{'lat':37.49953313598746,'lng':127.1100807343967, 'img' : 'images/good_tasty.jpeg'},
-								 {'lat':37.50147769105364,'lng':127.11180258440591, 'img' : 'images/good_tasty.jpeg'},
+ 		// 클러스터 파라미터 *** 예시 데이터
+		var data = {'positions':[{'lat':37.49953313598746,'lng':127.1100807343967, 'img' : 'images/good_tasty2.jpeg'},
+								 {'lat':37.50147769105364,'lng':127.11180258440591, 'img' : 'images/good_tasty2.jpeg'},
 								 {'lat':37.50200235054759,'lng':127.10958675202548, 'img' : 'images/good_tasty.jpeg'},
-								 {'lat':37.500509517264504,'lng':127.10648589503523, 'img' : 'images/good_tasty.jpeg'},
+								 {'lat':37.500509517264504,'lng':127.10648589503523, 'img' : 'images/good_tasty2.jpeg'},
 								 {'lat':37.4979671,'lng':127.1151262, 'img' : 'images/good_tasty.jpeg'},
+								 {'lat':37.47889551801841,'lng':126.97955914815837, 'img' : 'images/good_tasty.jpeg'},
+								 {'lat':37.483040824549526,'lng':126.98385445295897, 'img' : 'images/good_tasty2.jpeg'},
+								 {'lat':37.48188706570224,'lng':126.98073418131557, 'img' : 'images/good_tasty.jpeg'},
+								 {'lat':37.477310375429255,'lng':126.98362957503082, 'img' : 'images/good_tasty2.jpeg'},
+								 {'lat':37.482751108908765,'lng':126.97571393488533, 'img' : 'images/good_tasty.jpeg'},
+								 {'lat':37.479902981483875,'lng':126.97150904981963, 'img' : 'images/good_tasty.jpeg'}
 		]};
+		console.log(data)
 		let clusterer = new kakao.maps.MarkerClusterer({
 			map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
 			averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
 			minLevel: 7, // 클러스터 할 최소 지도 레벨
-			disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+			disableClickZoom: true, // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+			styles: [{
+				fontSize: '30px',
+				'text-align': 'right',
+				'color': 'white',
+				'border-radius': '15px',
+				'text-shadow': '-1px 0 red, 0 1px red, 1px 0 red, 0 -1px red',
+				border : '1px solid #333',
+				background: 'url("' + data.positions[0].img + '") no-repeat',
+				width : '54px',
+				height : '59px',
+            }]
 		});
-		
+
+		function test(test) {
+			console.log(test)
+		}
+
+
 		// 데이터에서 좌표 값을 가지고 마커를 표시합니다
 		// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
 		let markers = $(data.positions).map(function(i, position) {
